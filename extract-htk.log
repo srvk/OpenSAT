@@ -1,0 +1,13 @@
+[ 09.08.2017 - 15:02:28 ]
+    (MSG) [2] in SMILExtract : openSMILE starting!
+[ 09.08.2017 - 15:02:28 ]
+    (MSG) [2] in SMILExtract : config file is: /vagrant/MED_2s_100ms_htk.conf
+[ 09.08.2017 - 15:02:28 ]
+    (MSG) [2] in cComponentManager : successfully registered 95 component types.
+[ 09.08.2017 - 15:02:28 ]
+    (MSG) [2] in cComponentManager : successfully finished createInstances
+                                 (19 component instances were finalised, 1 data memories were finalised)
+[ 09.08.2017 - 15:02:28 ]
+    (MSG) [2] in cComponentManager : starting single thread processing loop
+[ 09.08.2017 - 15:02:29 ]
+    (MSG) [2] in cComponentManager : Processing finished! System ran for 168 ticks.
