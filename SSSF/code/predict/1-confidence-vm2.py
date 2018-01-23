@@ -1,6 +1,13 @@
 USAGE = """  
-python 1-confidence.py <PART (dev|evl)> <MODEL>  
+python 1-confidence-vm2.py <INPUT FOLDER>
+  where <INPUT FOLDER> contains 1 or more .htk features files
 """
+
+RNNPATH='~/OpenSAT/SSSF/code/predict/RNN'
+TOOLSPATH="~/G/coconut"
+NNET='~/OpenSAT/SSSF/code/predict/model/noiseme.old/net.pkl.gz'
+PCAMATRIX='~/OpenSAT/SSSF/code/predict/model/noiseme.old/pca.pkl'
+SCALINGFACTORS='~/OpenSAT/SSSF/code/predict/model/noiseme.old/scale.pkl'
 
 import sys
 if len(sys.argv) < 2:
@@ -10,9 +17,9 @@ if len(sys.argv) < 2:
 import os, os.path
 import numpy
 import cPickle
-sys.path.append(os.path.expanduser('~/OpenSAT/SSSF/code/predict/RNN'))
+sys.path.append(os.path.expanduser(RNNPATH))
 from RNN import RNN
-sys.path.append(os.path.expanduser("~/G/coconut"))
+sys.path.append(os.path.expanduser(TOOLSPATH))
 from fileutils import smart_open
 from fileutils.htk import *
 from scipy.io import savemat
@@ -27,18 +34,19 @@ if not os.path.exists(OUTPUT_DIR):
     os.makedirs(OUTPUT_DIR)
 
 # Load neural network
-net = RNN(filename = os.path.expanduser('~/OpenSAT/SSSF/code/predict/model/noiseme.old/net.pkl.gz'))
+print "Loading neural network..."
+net = RNN(filename = os.path.expanduser(NNET))
 
 # Load PCA matrix and scaling factors
-with open(os.path.expanduser('~/OpenSAT/SSSF/code/predict/model/noiseme.old/pca.pkl'), 'rb') as f:
+with open(os.path.expanduser(PCAMATRIX), 'rb') as f:
     locals().update(cPickle.load(f))
-    with open(os.path.expanduser('~/OpenSAT/SSSF/code/predict/model/noiseme.old/scale.pkl'), 'rb') as f:
+    with open(os.path.expanduser(SCALINGFACTORS), 'rb') as f:
         w, b = cPickle.load(f)
         pca = lambda x: ((x[:,mask] - mu) / sigma).dot(V) * w + b
 
 # Predict for each recording 
-conf = {}
 for filename in os.listdir(INPUT_DIR):
+    conf = {}
     print "Filename {}".format(filename)
     id,ext = os.path.splitext(filename)
     if ext != '.htk': continue
@@ -48,7 +56,10 @@ for filename in os.listdir(INPUT_DIR):
     m = numpy.ones(x.shape[:-1], dtype = 'int32')
     conf[id] = net.predict(x, m)[0]
 
-# Save predictions   
-with smart_open(os.path.join(OUTPUT_DIR, 'confidence.pkl.gz'), 'wb') as f:
-    cPickle.dump(conf, f)
-    savemat(os.path.join(OUTPUT_DIR, 'confidence.mat'), conf)
+    # Save predictions   
+    with smart_open(os.path.join(OUTPUT_DIR, id + '.confidence.pkl.gz'), 'wb') as f:
+        cPickle.dump(conf, f)
+        savemat(os.path.join(OUTPUT_DIR, id + '.confidence.mat'), conf)
+
+
+
