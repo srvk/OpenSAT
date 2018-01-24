@@ -36,5 +36,5 @@ for file in `ls $1/*.wav`; do
 done
 
 # then confidences
-python SSSF/code/predict/1-confidence-vm2.py $1
+python SSSF/code/predict/1-confidence-vm3.py $1
 
