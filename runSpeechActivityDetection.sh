@@ -37,5 +37,5 @@ done
 
 # then confidences
 #python SSSF/code/predict/1-confidence-vm3.py $1
-python SSSF/code/predict/1-confidence-vm4.py $1
+python SSSF/code/predict/1-confidence-vm5.py $1
 
