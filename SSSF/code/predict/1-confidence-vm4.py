@@ -103,7 +103,7 @@ for filename in os.listdir(INPUT_DIR):
                     frame_class = most_likely[t-1]
                     # get confidence of system
                     confidence = result[t][frame_class]
-                    rttm.write(u"SPEAKER\t{}\t{}\t{}\t<NA>\t<NA>\t{}\t{}\t<NA>\n".format
+                    rttm.write(u"SPEAKER\t{}\t{}\t{}\t{}\t<NA>\t<NA>\t{}\t{}\t<NA>\n".format
 		        (id, 1, t_start, time_elapse, classes[most_likely[t-1]],
                          confidence ))
                     t_start = time_frame[t]
@@ -115,7 +115,7 @@ for filename in os.listdir(INPUT_DIR):
                     frame_class = most_likely[t-1]
                     # get confidence of system
                     confidence = result[t][frame_class]
-                    rttm.write(u"NON-SPEECH\t{}\t{}\t{}\t<NA>\t<NA>\t{}\t{}\t<NA>\n".format
+                    rttm.write(u"NON-SPEECH\t{}\t{}\t{}\t{}\t<NA>\t<NA>\t{}\t{}\t<NA>\n".format
 		        (id, 1, t_start, time_elapse, classes[most_likely[t-1]],
                          confidence ))
                     t_start = time_frame[t]
