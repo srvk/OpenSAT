@@ -1,9 +1,10 @@
 #!/bin/bash
-# runDiarNoisemes.sh
+# runClasses.sh
 
 # run OpenSAT with hard coded models & configs found here and in /vagrant
 # assumes Python environment in /home/${user}/
-# usage: runDiarNoisemes.sh <folder containing .wav files to process>
+# usage: runClasses.sh <folder containing .wav files to process>
+# produces RTTM format with class labels found in noisemeclasses.txt
 
 # Absolute path to this script. /home/user/bin/foo.sh
 SCRIPT=$(readlink -f $0)
@@ -20,7 +21,7 @@ basename="${filename%.*}"
 #export PATH=/home/${user}/anaconda/bin:$PATH
 
 if [ $# -ne 1 ]; then
-  echo "Usage: runOpenSAT.sh <audiofile>"
+  echo "Usage: $0 <audiofile>"
   exit 1;
 fi
 
