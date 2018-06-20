@@ -1,5 +1,5 @@
 #!/bin/bash
-# runDiarNoisemes.sh
+# runSpeechActivityDetection.sh
 
 # run OpenSAT with hard coded models & configs found here and in /vagrant
 # assumes Python environment in /home/${user}/
@@ -20,7 +20,7 @@ basename="${filename%.*}"
 #export PATH=/home/${user}/anaconda/bin:$PATH
 
 if [ $# -ne 1 ]; then
-  echo "Usage: runOpenSAT.sh <audiofile>"
+  echo "Usage: runSpeechActivityDetection.sh <audiofile>"
   exit 1;
 fi
 

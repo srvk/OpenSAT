@@ -20,7 +20,7 @@ basename="${filename%.*}"
 #export PATH=/home/${user}/anaconda/bin:$PATH
 
 if [ $# -ne 1 ]; then
-  echo "Usage: runOpenSAT.sh <audiofile>"
+  echo "Usage: runDiarNoisemes.sh <audiofile>"
   exit 1;
 fi
 
