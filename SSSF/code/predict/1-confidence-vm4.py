@@ -10,7 +10,7 @@ PCAMATRIX='~/OpenSAT/SSSF/code/predict/model/noiseme.old/pca.pkl'
 SCALINGFACTORS='~/OpenSAT/SSSF/code/predict/model/noiseme.old/scale.pkl'
 
 import sys
-import ipdb
+#import ipdb
 if len(sys.argv) < 2:
     print USAGE
     sys.exit(1)
