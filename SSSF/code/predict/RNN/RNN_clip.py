@@ -3,7 +3,7 @@ import theano, theano.tensor as T
 from theano.tensor.shared_randomstreams import RandomStreams
 from ctc import *
 import sys, os.path
-sys.path.append(os.path.expanduser("~/G/coconut"))
+sys.path.append(os.path.expanduser("G/coconut"))
 from fileutils import smart_open
 import dill
 

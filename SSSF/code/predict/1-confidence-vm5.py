@@ -3,11 +3,11 @@ python 1-confidence-vm2.py <INPUT FOLDER>
   where <INPUT FOLDER> contains 1 or more .htk features files
 """
 
-RNNPATH='~/OpenSAT/SSSF/code/predict/RNN'
-TOOLSPATH="~/G/coconut"
-NNET='~/OpenSAT/SSSF/code/predict/model/noiseme.old/net.pkl.gz'
-PCAMATRIX='~/OpenSAT/SSSF/code/predict/model/noiseme.old/pca.pkl'
-SCALINGFACTORS='~/OpenSAT/SSSF/code/predict/model/noiseme.old/scale.pkl'
+RNNPATH='SSSF/code/predict/RNN'
+TOOLSPATH="G/coconut"
+NNET='SSSF/code/predict/model/noiseme.old/net.pkl.gz'
+PCAMATRIX='SSSF/code/predict/model/noiseme.old/pca.pkl'
+SCALINGFACTORS='SSSF/code/predict/model/noiseme.old/scale.pkl'
 
 import sys
 if len(sys.argv) < 2:

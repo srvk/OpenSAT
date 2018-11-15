@@ -20,7 +20,7 @@ basename="${filename%.*}"
 #export PATH=/home/${user}/anaconda/bin:$PATH
 
 if [ $# -ne 1 ]; then
-  echo "Usage: runDiarNoisemes.sh <audio folder>"
+  echo "Usage: runDiarNoisemes.sh <audiofile>"
   exit 1;
 fi
 
@@ -36,6 +36,5 @@ for file in `ls $1/*.wav`; do
 done
 
 # then confidences
-#python SSSF/code/predict/1-confidence-vm3.py $1
 python SSSF/code/predict/1-confidence-vm4.py $1
 

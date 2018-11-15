@@ -12,7 +12,7 @@ import numpy
 import cPickle
 sys.path.append('RNN')
 from RNN import RNN
-sys.path.append(os.path.expanduser("~/G/coconut"))
+sys.path.append(os.path.expanduser("G/coconut"))
 from fileutils import smart_open
 from fileutils.htk import *
 from scipy.io import savemat
