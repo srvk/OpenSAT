@@ -5,7 +5,8 @@ from ctc import *
 import sys, os.path
 sys.path.append(os.path.expanduser("G/coconut"))
 from fileutils import smart_open
-import dill
+# import dill
+import pickle
 
 relu = lambda x: 0.5 * (x + abs(x))
 ACTIVATION = {
@@ -51,11 +52,12 @@ class RNN(object):
 
         if filename is not None:            # load parameters from file
             with smart_open(filename, "rb") as f:
-                initParams = dill.load(f)
+                # initParams = dill.load(f)
+                initParams = pickle.load(f, encoding="latin1")
         if initParams is not None:          # load parameters from given dict
             self.paramNames = []
             self.params = []
-            for k, v in initParams.iteritems():
+            for k, v in initParams.items():
                 if type(v) is numpy.ndarray:
                     self.addParam(k, v)
                 else:
